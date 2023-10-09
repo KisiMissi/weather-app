@@ -9,7 +9,5 @@ public class Main {
         ConnectorToOWM connector = new ConnectorToOWM();
         System.out.println("Unformatted output:");
         System.out.println(connector.getWeatherUnformatted(city));
-        System.out.println("Formatted output:");
-        System.out.println(connector.getWeatherFormatted(city));
     }
 }

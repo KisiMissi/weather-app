@@ -16,8 +16,11 @@ public class ConnectorToOWM implements CityWeather {
     private static final String OWM_PROPERTIES_URL = "owm.url";
     private static final String OWM_PROPERTIES_KEY = "owm.key";
 
+    private final HttpClient client;
+
     public ConnectorToOWM() {
         setProperties();
+        client = HttpClient.newHttpClient();
     }
 
     private void setProperties() {
@@ -44,7 +47,6 @@ public class ConnectorToOWM implements CityWeather {
     }
 
     private HttpResponse<String> getResponse(String city) {
-        HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response;
         try {
             response = client.send(getRequest(city), HttpResponse.BodyHandlers.ofString());
